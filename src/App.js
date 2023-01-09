@@ -1,23 +1,35 @@
 import { createElement,Fragment, useEffect, useState } from 'react';
-import Tailwind from "./Tailwind";
-import './tailwind.css'
-import Button from './Components/Button.js'
-import Tab from './Components/Tab.js'
+// import Tailwind from "./Tailwind";
+// import './tailwind.css'
+// import Button from './Components/Button.js'
+// import Tab from './Components/Tab.js'
+import Test from './Test.js'
 
-function Profile(){
-  return(
-    <div>
-      Burası profile tabı
-    </div>
-  )
-}
+// function Profile(){
+//   return(
+//     <div>
+//       Burası profile tabı
+//     </div>
+//   )
+// }
 
 function App() {
 
-  const name = "nursah"
-  const todos=['todo1','tofo2','todo3']
+  const [show,setShow] = useState(false)
 
-  const [activeTab,setActiveTab] = useState(1)
+  return (
+    <>
+      <button onClick={()=> setShow(show => !show)}>
+        {show ? 'Gizle' : 'Göster'}
+      </button>
+      {show && <Test/>}
+    </>
+  );
+
+  // const name = "nursah"
+  // const todos=['todo1','tofo2','todo3']
+
+  // const [activeTab,setActiveTab] = useState(1)
 
   // function Button(props){
   //   return <button>{props.text}</button>
@@ -36,48 +48,49 @@ function App() {
 
 
 
-  return (
-   <>
+//   return (
+//    <>
 
-  <div style={{padding:20}}>
-    <button onClick={() => setActiveTab(2)}>
-      Aktif tabı değiştir
-    </button>
-    <Tab activeTab={activeTab} onChange={tabIndex => setActiveTab(tabIndex)}>
-      <Tab.Panel title="Profil"><Profile/></Tab.Panel>
-      <Tab.Panel title="Hakkında">2.Tab</Tab.Panel>
-      <Tab.Panel title="Ayarlar">3.Tab</Tab.Panel>
-    </Tab>
-    {activeTab === 2 && (
-        <div>
-          Burası ekstra bi alan
-        </div>
-    )}
-  </div>
+//   <div style={{padding:20}}>
+//     <button onClick={() => setActiveTab(2)}>
+//       Aktif tabı değiştir
+//     </button>
+//     <Tab activeTab={activeTab} onChange={tabIndex => setActiveTab(tabIndex)}>
+//       <Tab.Panel title="Profil"><Profile/></Tab.Panel>
+//       <Tab.Panel title="Hakkında">2.Tab</Tab.Panel>
+//       <Tab.Panel title="Ayarlar">3.Tab</Tab.Panel>
+//     </Tab>
+//     {activeTab === 2 && (
+//         <div>
+//           Burası ekstra bi alan
+//         </div>
+//     )}
+//   </div>
 
-   <div style={{padding:20}}>
-    <Button>
-      Buton Örneği
-    </Button>
-    <Button variant="success">
-      Buton Örneği
-    </Button>
-      <Button text="Buton Örneği" variant="danger"/>
-      <Button text="Buton Örneği" variant="warning"/>
-   </div>
-    <h1 tabIndex="3" style={{color:'blue', backgroundColor:'yellow'}}>nursah.com</h1>
-    <label htmlFor="search" tabIndex="2" onClick={() => alert('merhaba')} >Arama</label>
-    <input type="text" id="search" tabIndex="1"/>
-    <ul>
-      {name + " gunes"}
-      {todos.map((todo,index)=> (
-        <li key={index}>
-          {todo}
-        </li>
-      ))}
-    </ul>
-   </>
-  );
+//    <div style={{padding:20}}>
+//     <Button>
+//       Buton Örneği
+//     </Button>
+//     <Button variant="success">
+//       Buton Örneği
+//     </Button>
+//       <Button text="Buton Örneği" variant="danger"/>
+//       <Button text="Buton Örneği" variant="warning"/>
+//    </div>
+//     <h1 tabIndex="3" style={{color:'blue', backgroundColor:'yellow'}}>nursah.com</h1>
+//     <label htmlFor="search" tabIndex="2" onClick={() => alert('merhaba')} >Arama</label>
+//     <input type="text" id="search" tabIndex="1"/>
+//     <ul>
+//       {name + " gunes"}
+//       {todos.map((todo,index)=> (
+//         <li key={index}>
+//           {todo}
+//         </li>
+//       ))}
+//     </ul>
+//    </>
+//   );
+// }
+
 }
-
 export default App;
