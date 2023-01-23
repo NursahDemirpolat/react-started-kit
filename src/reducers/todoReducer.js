@@ -1,5 +1,5 @@
 function reducer(state,action){
-    console.log(state,action)
+    // console.log(state,action)
   switch(action.type){
     case 'SET_TODO':
       return {
@@ -14,6 +14,11 @@ function reducer(state,action){
           ...state.todos,
           action.todo
         ]
+      }
+    case 'SET_SEARCH':
+      return{
+      ...state,
+      search:action.value
       }
     }
   }
